@@ -19,20 +19,6 @@ class UserController {
         })
     }
     update(req, res) {
-        const id = req.params.id;
-        const body = req.body;
-        UserModel.update(id, body)
-        return res.json({
-            message: 'Usuario atualizado com sucesso.'
-        })
-    }
-    delete(req, res) {
-        const id = req.params.id;
-        UserModel.delete(id);
-        return res.json({
-            message: 'Usuario removido com sucesso.'
-        })
+        const id = req.params.id
     }
 }
-
-module.exports = UserController;

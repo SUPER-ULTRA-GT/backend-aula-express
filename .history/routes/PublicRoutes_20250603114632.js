@@ -1,0 +1,8 @@
+const express = require('express');
+
+const PublicRoutes = express.Router();
+
+PublicRoutes.post('/login', (req, res) => {
+    const body = req.body;
+    
+})

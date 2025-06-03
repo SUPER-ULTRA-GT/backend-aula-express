@@ -29,10 +29,6 @@ class UserController {
     delete(req, res) {
         const id = req.params.id;
         UserModel.delete(id);
-        return res.json({
-            message: 'Usuario removido com sucesso.'
-        })
+        
     }
 }
-
-module.exports = UserController;

@@ -13,10 +13,7 @@ class UsersModel {
         }
     ];
 
-    static authenticate (login, senha) {
-        const index = UsersModel.list.findIndex(item => item.login === login && item.senha === senha);
-        return UsersModel.list[index];
-    }
+    static authenticate (login, senha)
 
     static read() {
         return UsersModel.list;
