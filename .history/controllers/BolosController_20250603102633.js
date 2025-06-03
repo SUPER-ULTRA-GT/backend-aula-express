@@ -1,0 +1,10 @@
+const BolosModel = require('../models/BolosModel');
+
+class BolosController {
+
+    read()
+    getById()
+    create()
+    update()
+    delete()
+}

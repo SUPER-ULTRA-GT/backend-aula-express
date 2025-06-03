@@ -1,0 +1,14 @@
+const express = require('express');
+const BolosController = require('../controllers/BolosController');
+
+const BolosRouter = express.Router();
+
+BolosRouter.get('/bolos', BolosController.read);
+
+BolosRouter.get('/bolos/:id', BolosController.getById);
+
+BolosRouter.post('/bolos', BolosController.create);
+
+BolosRouter.put('/bolos/:id', BolosController.update);
+
+BolosRouter.delete()
