@@ -18,7 +18,7 @@ app.listen(PORT, HOST, () => {
 
 app.get('/teste/:id', (req, res) => {
     const params = req.params;
-    let dados = `<br> Params: ${params.id}`;
+    let dados = `<br> Params: ${params.rapadura}`;
 
     const query = req.query;
     dados += `<br> Query: ${query.nome} - ${query.sobrenome}`;

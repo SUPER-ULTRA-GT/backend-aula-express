@@ -1,0 +1,5 @@
+class UsersModel {
+    static list = [
+        
+    ]
+}
