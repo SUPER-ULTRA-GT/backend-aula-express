@@ -1,26 +1,20 @@
 const express = require('express');
 const jwt = require('jsonwebtoken');
-require('dotenv').config();
 const BolosRouter = require('./BolosRoute');
 const CafeRouter = require('./CafeRoute');
 const UserRoute = require('./UserRoute')
+require('dotenv').config();
 const PrivateRoutes = express.Router();
 
 // MIDDLEWARE
 
 PrivateRoutes.use((req, res, next) => {
-    const chaveApi =  process.env.CHAVE_API
 
-    const { token } = req.headers;
-    if (!token) {
-        return res.status(403).send('Nao autorizado');
-    }
+    console.log(req.headers.token)
     try {
-        jwt.verify(token, chaveApi);
-        next();
-    } catch (error) {
-        return res.status(403).send(error)
+        jwt.verify(token, process.env.CHAVE_API)
     }
+    next();
 })
 
 PrivateRoutes.use(UserRoute);

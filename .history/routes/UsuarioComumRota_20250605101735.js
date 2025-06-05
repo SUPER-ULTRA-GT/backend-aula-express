@@ -7,11 +7,3 @@ const cafe = new CafeController();
 CafeRouter.get('/cafe', cafe.read);
 
 CafeRouter.get('/cafe/:id', cafe.getById);
-
-CafeRouter.post('/cafe', cafe.create);
-
-CafeRouter.put('/cafe/:id', cafe.update);
-
-CafeRouter.delete('/cafe/:id', cafe.delete);
-
-module.exports = CafeRouter;

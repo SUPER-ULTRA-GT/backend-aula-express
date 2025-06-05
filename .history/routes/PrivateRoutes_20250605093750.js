@@ -17,7 +17,7 @@ PrivateRoutes.use((req, res, next) => {
     }
     try {
         jwt.verify(token, chaveApi);
-        next();
+        next()
     } catch (error) {
         return res.status(403).send(error)
     }

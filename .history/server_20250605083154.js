@@ -19,15 +19,15 @@ app.listen(PORT, HOST, () => {
     console.log(`Servidor escutando em http://${HOST}:${PORT}`);
 })
 
-// app.get('/teste/:id', (req, res) => {
-//     const params = req.params;
-//     let dados = `<br> Params: ${params.id}`;
+app.get('/teste/:id', (req, res) => {
+    const params = req.params;
+    let dados = `<br> Params: ${params.id}`;
 
-//     const query = req.query;
-//     dados += `<br> Query: ${query.nome} - ${query.sobrenome}`;
+    const query = req.query;
+    dados += `<br> Query: ${query.nome} - ${query.sobrenome}`;
 
-//     const body = req.body;
-//     dados += `<br> Body: ${JSON.stringify(body)}`;
+    const body = req.body;
+    dados += `<br> Body: ${JSON.stringify(body)}`;
 
-//     return res.send(dados);
-// })
+    return res.send(dados);
+})

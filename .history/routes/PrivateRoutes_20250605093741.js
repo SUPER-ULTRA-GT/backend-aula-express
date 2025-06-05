@@ -16,8 +16,8 @@ PrivateRoutes.use((req, res, next) => {
         return res.status(403).send('Nao autorizado');
     }
     try {
-        jwt.verify(token, chaveApi);
-        next();
+        jwt.verify(token, process.env.CHAVE_API);
+        next()
     } catch (error) {
         return res.status(403).send(error)
     }

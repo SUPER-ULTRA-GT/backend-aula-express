@@ -9,18 +9,19 @@ const PrivateRoutes = express.Router();
 // MIDDLEWARE
 
 PrivateRoutes.use((req, res, next) => {
-    const chaveApi =  process.env.CHAVE_API
 
     const { token } = req.headers;
     if (!token) {
         return res.status(403).send('Nao autorizado');
     }
-    try {
-        jwt.verify(token, chaveApi);
-        next();
-    } catch (error) {
-        return res.status(403).send(error)
-    }
+
+    
+    // try {
+    //     jwt.verify(token, process.env.CHAVE_API);
+    //     next()
+    // } catch (error) {
+    //     return res.status(403).send(error)
+    // }
 })
 
 PrivateRoutes.use(UserRoute);
