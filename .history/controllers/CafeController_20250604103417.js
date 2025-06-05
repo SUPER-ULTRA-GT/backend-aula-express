@@ -1,0 +1,6 @@
+class CafeController {
+
+    read()
+    getById()
+    
+}
