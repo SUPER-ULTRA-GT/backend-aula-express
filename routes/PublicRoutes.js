@@ -12,7 +12,7 @@ PublicRoutes.post('/login', (req, res) => {
     const auth = new AuthController();
     const data = auth.login(body.login, body.senha);
     if (data) {
-        const token = jwt.sign({ id: data.id, login: data.login }, uniqueToken, { expiresIn: '8h' });
+        const token = jwt.sign({ login: data.login, senha: data.senha }, uniqueToken, { expiresIn: '8h' });
         return res.json({
             token: token
         });
