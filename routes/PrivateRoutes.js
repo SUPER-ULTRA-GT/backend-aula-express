@@ -9,9 +9,15 @@ const PrivateRoutes = express.Router();
 // MIDDLEWARE
 
 PrivateRoutes.use((req, res, next) => {
-    const chaveApi =  process.env.CHAVE_API
-
-    const { token } = req.headers;
+    const chaveApi = process.env.CHAVE_API;
+    let token = req.headers.token;
+    // Suporte ao header Authorization: Bearer <token>
+    if (!token && req.headers.authorization) {
+        const parts = req.headers.authorization.split(' ');
+        if (parts.length === 2 && parts[0] === 'Bearer') {
+            token = parts[1];
+        }
+    }
     if (!token) {
         return res.status(403).send('Nao autorizado');
     }
@@ -19,7 +25,7 @@ PrivateRoutes.use((req, res, next) => {
         jwt.verify(token, chaveApi);
         next();
     } catch (error) {
-        return res.status(403).send(error)
+        return res.status(403).send('Token inválido ou expirado');
     }
 })
 
