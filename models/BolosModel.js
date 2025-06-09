@@ -71,10 +71,10 @@ class BolosModel {
     //     BolosModel.list.push(data);
     // }
 
-    static async create({ bolo }) {
+    static async create(bolo) {
         const { data, error } = await supabase
             .from('bolo')
-            .insert([{ bolo }])
+            .insert([bolo])
             .select(`
                 id,
                 sabor,
@@ -100,10 +100,10 @@ class BolosModel {
     //     BolosModel.list[index] = data;
     // }
 
-    static async update (id, { bolo }) {
+    static async update (id, bolo) {
         const { data, error } = await supabase
             .from('bolo')
-            .update({ bolo })
+            .update(bolo)
             .eq('id', id)
             .select(`
                 id,
